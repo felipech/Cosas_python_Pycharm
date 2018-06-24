@@ -60,3 +60,43 @@ class CuentaAhorro(Cuenta):
         print("Balance disponible: ",self.cuentasAhorros[self.numeroCuenta][1])
 
 
+cuentaDeAhorro = CuentaAhorro()
+
+while True:
+    print("Presione 1 para crear una cuenta")
+    print("presione 2 para acceder a una cuenta existente")
+    print("presione 3 para salir")
+    eleccionUsuario = int(input())
+    if eleccionUsuario is 1:
+        print("ingresa tu nombre")
+        nombre = input()
+        print("Ingrese su deposito inicial")
+        depostio = int(input())
+        cuentaDeAhorro.crearCuenta(nombre, depostio)
+    if eleccionUsuario is 2:
+        print("ingrese su nombre")
+        nombre = input()
+        print("Ingrese su numero de cuenta")
+        numeroDeCuenta = int(input())
+        estadoDeAutentificacion = cuentaDeAhorro.autentificacion(nombre, numeroDeCuenta)
+        if estadoDeAutentificacion is True:
+            while True:
+                print("Presione 1 para retirar")
+                print("presione 2 para depositar")
+                print("presione 3 para ver su balance")
+                print("presione 4 para volver al menu anterior")
+                eleccionUsuario2 = int(input())
+                if eleccionUsuario2 is 1:
+                    print("Ingrese la cantidad que quiere retirar")
+                    montoRetiro = int(input())
+                    cuentaDeAhorro.retiro(montoRetiro)
+                if eleccionUsuario2 is 2:
+                    print("Ingrese la cantidad que quiere depositar")
+                    cantidadDeposito = int(input())
+                    cuentaDeAhorro.deposito(cantidadDeposito)
+                if eleccionUsuario2 is 3:
+                    cuentaDeAhorro.mostrarBalance()
+                if eleccionUsuario2 is 4:
+                    break
+    elif eleccionUsuario is 3:
+        quit()
