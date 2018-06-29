@@ -131,7 +131,7 @@ def answer2(phone_number):
 
 
 
-"""name = "felipe Choque henriquez"
+"""name = ""
 
 respuesta = answer(name)
 print(respuesta)"""
